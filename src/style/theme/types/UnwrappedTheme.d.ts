@@ -5,6 +5,7 @@ type UnwrappedTheme = {
   card: string;
   cardActive: string;
   cardInactive: string;
+  iconBackground: string;
   cardDark: string;
   primary: string;
   fontStd: string;

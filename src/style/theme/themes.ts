@@ -8,6 +8,7 @@ export const DARK_THEME: UnwrappedTheme = {
   cardActive: COLORS.cobalt,
   cardDark: COLORS.gray50,
   cardInactive: `${COLORS.cobalt}77`,
+  iconBackground: COLORS.gray800,
   notification: COLORS.gray800,
   text: COLORS.white,
   fontStd: COLORS.white,
@@ -15,7 +16,7 @@ export const DARK_THEME: UnwrappedTheme = {
   fontLight: COLORS.gray700,
   fontInverse: COLORS.offBlack,
   primary: COLORS.cobalt,
-  border: 'transparent',
+  border: COLORS.gray800,
 };
 
 export const LIGHT_THEME: UnwrappedTheme = {
@@ -24,6 +25,7 @@ export const LIGHT_THEME: UnwrappedTheme = {
   cardActive: COLORS.cobalt,
   cardDark: COLORS.gray800,
   cardInactive: `${COLORS.cobalt}77`,
+  iconBackground: COLORS.gray100,
   notification: COLORS.gray700,
   text: COLORS.offBlack,
   fontStd: COLORS.offBlack,
@@ -31,7 +33,7 @@ export const LIGHT_THEME: UnwrappedTheme = {
   fontLight: COLORS.gray300,
   fontInverse: COLORS.offWhite,
   primary: COLORS.cobalt,
-  border: 'transparent',
+  border: COLORS.gray50,
 };
 
 export const DARK_THEME_WRAPPED = {
