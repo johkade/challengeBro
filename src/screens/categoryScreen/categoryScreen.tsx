@@ -1,10 +1,11 @@
 import React from "react";
 import {StyleSheet, View} from "react-native";
 import useSetTheme from "../../style/theme/hooks/useSetTheme";
-import CText from "../../components/CText/cText";
-import {FC} from "../../style/theme/util/fontConfig";
+import CText from "../../components/cText/cText";
+import {FC} from "../../style/theme/fontConfig";
 import CIcon from "../../components/cIcon/cIcon";
 import {NavigationProp} from "@react-navigation/native";
+import TopicFlip from "../../components/topicFlip/topicFlip";
 
 
 type ScreenProps = {
@@ -13,7 +14,6 @@ type ScreenProps = {
 
 const CategoryScreen = ({navigation}: ScreenProps) => {
     const {setThemeId} = useSetTheme()
-
 
     return (
         <View style={styles.container}>
@@ -30,6 +30,9 @@ const CategoryScreen = ({navigation}: ScreenProps) => {
             <CIcon icon={'search'}/>
             <CIcon icon={'close'}/>
             <CIcon icon={'add'}/>
+            <TopicFlip name={'Test'} variant={'small'}/>
+            <TopicFlip name={'Test'} variant={'large'}/>
+            <TopicFlip name={'Test'} variant={'large'} active/>
 
         </View>
     )

@@ -1,10 +1,11 @@
 import COLORS from "../colors";
 
 type UnwrappedTheme = {
-  bg: string;
+  background: string;
   card: string;
   cardActive: string;
   cardInactive: string;
+  cardDark: string;
   primary: string;
   fontStd: string;
   fontLight: string;

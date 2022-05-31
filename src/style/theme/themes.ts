@@ -3,9 +3,10 @@ import {DarkTheme, DefaultTheme} from '@react-navigation/native';
 import UnwrappedTheme from './types/UnwrappedTheme';
 
 export const DARK_THEME: UnwrappedTheme = {
-  bg: COLORS.offBlack,
+  background: COLORS.offBlack,
   card: COLORS.gray800,
   cardActive: COLORS.cobalt,
+  cardDark: COLORS.gray50,
   cardInactive: `${COLORS.cobalt}77`,
   notification: COLORS.gray800,
   text: COLORS.white,
@@ -18,9 +19,10 @@ export const DARK_THEME: UnwrappedTheme = {
 };
 
 export const LIGHT_THEME: UnwrappedTheme = {
-  bg: COLORS.white,
+  background: COLORS.white,
   card: COLORS.gray50,
   cardActive: COLORS.cobalt,
+  cardDark: COLORS.gray800,
   cardInactive: `${COLORS.cobalt}77`,
   notification: COLORS.gray700,
   text: COLORS.offBlack,
