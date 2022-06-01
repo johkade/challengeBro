@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import Topic from "../../data/types/topic";
-import {GestureResponderEvent, StyleSheet, TouchableOpacity, View} from "react-native";
+import {StyleSheet, TouchableOpacity, View} from "react-native";
 import CText from "../cText/cText";
 import {FC} from "../../style/theme/fontConfig";
 import CIcon from "../cIcon/cIcon";
@@ -12,7 +12,7 @@ type Props = {
     name: string;
     topics: Topic[],
     selectedTopicIds: string[],
-    onPressTopic: (event: GestureResponderEvent) => void
+    onPressTopic: (id: string) => void
 }
 
 const CategoryAccordion = ({name, topics, onPressTopic, selectedTopicIds}: Props) => {
