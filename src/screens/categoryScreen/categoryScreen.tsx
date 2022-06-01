@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {FlatList, StyleSheet, View} from "react-native";
+import {Dimensions, FlatList, StyleSheet, useWindowDimensions, View} from "react-native";
 import {NavigationProp} from "@react-navigation/native";
 import {SafeAreaView, useSafeAreaInsets} from "react-native-safe-area-context";
 import {SPACE} from "../../style/theme/misc";
@@ -27,6 +27,10 @@ const CategoryScreen = ({navigation}: ScreenProps) => {
     const {top} = useSafeAreaInsets();
     const {selectedTopicIds, removeTopicById, toggleTopicById} = useDataStore();
 
+    const {width} = useWindowDimensions();
+
+    const marginHorizontal = width > 800 ? width * .2 : 0;
+
     const renderCategory = ({item}: renderItemParams) => {
         const topics = getTopicsByCategoryId(item.id);
         return (
@@ -35,20 +39,18 @@ const CategoryScreen = ({navigation}: ScreenProps) => {
         )
     }
 
-    const paddingTop = top + SPACE.topPadding + SPACE.searchBarHeight + SPACE.m8 + SPACE.xl32* 4 + 26;
+    const paddingTop = top + SPACE.topPadding + SPACE.searchBarHeight + SPACE.m8 + SPACE.xl32 * 4 + 26;
 
     return (
 
-        <SafeAreaView style={styles.SAV} edges={['bottom']}>
+        <SafeAreaView style={[styles.SAV, {marginHorizontal}]} edges={['bottom']}>
 
-                <FlatList data={categories} renderItem={renderCategory} style={styles.container}
-                          contentContainerStyle={[styles.contentContainer, {paddingTop}]}
-                />
+            <FlatList data={categories} renderItem={renderCategory} style={styles.container}
+                      contentContainerStyle={[styles.contentContainer, {paddingTop}]}
+            />
 
-                <HeaderSection selectedTopicIds={selectedTopicIds} onPressRemoveTopic={removeTopicById}/>
-                <FooterBar nextStepEnabled={!!selectedTopicIds.length}/>
-
-
+            <HeaderSection selectedTopicIds={selectedTopicIds} onPressRemoveTopic={removeTopicById}/>
+            <FooterBar nextStepEnabled={!!selectedTopicIds.length}/>
 
 
         </SafeAreaView>
@@ -58,7 +60,7 @@ const CategoryScreen = ({navigation}: ScreenProps) => {
 export default CategoryScreen;
 
 const styles = StyleSheet.create({
-    SAV: {flex: 1},
+    SAV: {flex: 1, minWidth: 250},
     container: {flex: 1},
     contentContainer: {paddingHorizontal: SPACE.sidePadding},
 })
