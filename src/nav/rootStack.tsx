@@ -16,7 +16,7 @@ const RootStack = () => {
             <NavigationContainer theme={wrappedTheme}>
                 {/*@ts-ignore TODO: fix ts error (typing) */}
                 <RootStackNav.Navigator screenOptions={navConfig}>
-                    <RootStackNav.Screen name={ROUTES.CATEGORY_SCREEN} component={CategoryScreen} />
+                    <RootStackNav.Screen name={ROUTES.CATEGORY_SCREEN} component={CategoryScreen} options={{title: 'challengeBro'}}/>
                 </RootStackNav.Navigator>
             </NavigationContainer>
 
