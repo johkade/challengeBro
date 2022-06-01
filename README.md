@@ -1,7 +1,7 @@
 # challengeBro
 
 #### todo: (Sorry, don't have more time for this for now 🙃)
-- animations with moti
+- animations with moti (didn't have time to go through the setup and haven't tried moti on the web yet. I do use it a lot on our app)
 - refactoring and some ts fixes, I tried to move quickly so this surely isn't the cleanest code everywhere.
 - set up a proper eslint/prettier config... sadly expo doesn't seem to provide this with expo init like react-native init does
 - native feedback for buttons would be nicer than just TouchableOpacity
