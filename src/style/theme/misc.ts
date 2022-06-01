@@ -6,13 +6,20 @@ export const SPACE = {
     sidePadding: 24,
     searchBarHeight: 56,
 
-    xl32:32,
+    xxl32: 32,
+    xl24: 24,
     l16: 16,
     m8: 8,
-    xs: 2,
-    xxs: 1,
+    s12: 12,
+    xs2: 2,
+    xxs1: 1,
 }
 export const BORDER_RADIUS = {
     full: 1000,
-    m:12,
+    m: 12,
+}
+
+export const ICON_SIZE = {
+    m16: 16,
+    l24: 24,
 }

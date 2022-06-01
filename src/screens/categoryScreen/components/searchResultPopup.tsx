@@ -14,19 +14,19 @@ type Props = {
     onPressResult: (id: string) => void;
 }
 
-type RenderItemParams= {
+type RenderItemParams = {
     item: Topic;
     index: number;
 
 }
-const baseTop =SPACE.topPadding + SPACE.searchBarHeight + SPACE.m8 + SPACE.xxs + SPACE.xl32 * 2 + 26;
+const baseTop = SPACE.topPadding + SPACE.searchBarHeight + SPACE.m8 + SPACE.xxs1 + SPACE.xxl32 * 2 + 26;
 
-const SearchResultPopup = ({results, searchKey, onPressResult}:Props) => {
+const SearchResultPopup = ({results, searchKey, onPressResult}: Props) => {
     const theme = useTheme();
     const {top: topInset} = useSafeAreaInsets();
     const top = topInset + baseTop;
 
-    const renderResult = ({item}:RenderItemParams) => {
+    const renderResult = ({item}: RenderItemParams) => {
         return (
             <TopicResult name={item.id} id={item.id} key={item.id} style={styles.result} onPress={onPressResult}/>
         )

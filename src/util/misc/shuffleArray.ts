@@ -1,6 +1,6 @@
 // from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array 🤷
-const shuffleArray = (array: any[]) =>  {
-    let currentIndex = array.length,  randomIndex;
+const shuffleArray = (array: any[]) => {
+    let currentIndex = array.length, randomIndex;
 
     // While there remain elements to shuffle.
     while (currentIndex != 0) {

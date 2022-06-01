@@ -5,7 +5,7 @@ import CText from "../cText/cText";
 import {FC} from "../../style/theme/fontConfig";
 import CIcon from "../cIcon/cIcon";
 import useTheme from "../../style/theme/hooks/useTheme";
-import {SPACE} from "../../style/theme/misc";
+import {ICON_SIZE, SPACE} from "../../style/theme/misc";
 import TopicFlip from "../topicFlip/topicFlip";
 
 type Props = {
@@ -24,7 +24,7 @@ const CategoryAccordion = ({name, topics, onPressTopic, selectedTopicIds}: Props
         <View style={styles.container}>
             <TouchableOpacity style={styles.headerRow} onPress={toggle}>
                 <CText text={name} fontConfig={FC.h3}/>
-                <CIcon icon={'chevron-down'} color={theme.fontInverse} size={16} withBgColor={theme.iconBackground}/>
+                <CIcon icon={'chevron-down'} color={theme.fontInverse} size={ICON_SIZE.m16} withBgColor={theme.iconBackground}/>
             </TouchableOpacity>
 
             {open && (<View style={styles.flipContainer}>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     flipContainer: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        marginTop: 18,
+        marginTop: SPACE.l16,
     },
     topicFlip: {marginRight: SPACE.m8, marginBottom: SPACE.m8},
 })

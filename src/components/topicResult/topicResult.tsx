@@ -4,10 +4,11 @@ import {StyleSheet, TouchableOpacity, ViewStyle} from "react-native";
 import CText from "../cText/cText";
 import {FC} from "../../style/theme/fontConfig";
 import CIcon from "../cIcon/cIcon";
-import {ACTIVE_OPACITY, BORDER_RADIUS} from "../../style/theme/misc";
+import {ACTIVE_OPACITY, BORDER_RADIUS, ICON_SIZE, SPACE} from "../../style/theme/misc";
 
 const noop = () => {
 };
+
 type Props = {
     name: string;
     style?: ViewStyle;
@@ -20,12 +21,14 @@ const fontConfig = FC.textL;
 const TopicResult = ({name, style, onPress = noop, id}: Props) => {
     const theme = useTheme();
 
+    const onPressWithId = () => onPress(id)
+
     return (
-        <TouchableOpacity style={[style, styles.container]} onPress={() => onPress(id)}
+        <TouchableOpacity style={[style, styles.container]} onPress={onPressWithId}
                           activeOpacity={ACTIVE_OPACITY}>
             <CText text={name} fontConfig={fontConfig}/>
-            <TouchableOpacity onPress={() => onPress(id)} activeOpacity={ACTIVE_OPACITY}>
-                <CIcon icon={'add'} size={16} style={styles.icon} color={theme.fontInverse}
+            <TouchableOpacity onPress={onPressWithId} activeOpacity={ACTIVE_OPACITY}>
+                <CIcon icon={'add'} size={ICON_SIZE.m16} style={styles.icon} color={theme.fontInverse}
                        withBgColor={theme.cardActive}/>
             </TouchableOpacity>
         </TouchableOpacity>
@@ -41,8 +44,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     icon: {
-        marginLeft: 10,
-        alignItems: "center",
+        marginLeft: SPACE.m8,
+        alignItems: 'center',
         justifyContent: 'center',
     }
 })

@@ -1,5 +1,3 @@
-
-
 const FONT = {
     Inter600: 'Inter_600SemiBold',
     Inter500: 'Inter_500Medium',
@@ -7,7 +5,7 @@ const FONT = {
     Inter300: 'Inter_300Light',
 }
 
-const getFontConfig = (fontSize = 16, lineHeight =  24, fontFamily = FONT.Inter600) => {
+const getFontConfig = (fontSize = 16, lineHeight = 24, fontFamily = FONT.Inter600) => {
     return {
         fontSize,
         lineHeight,

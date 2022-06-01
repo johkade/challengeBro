@@ -14,14 +14,12 @@ const useDataStore = create<DataStoreState>()(
         set => ({
             selectedTopicIds: [],
             toggleTopicById: (id: string) => set((prev) => {
-
-
                 const index = prev.selectedTopicIds.indexOf(id);
                 // remove or add
-                if(index >=0){
+                if (index >= 0) {
                     const newArr = prev.selectedTopicIds.filter(t => t !== id);
                     return {selectedTopicIds: newArr}
-                }else {
+                } else {
                     return {selectedTopicIds: [...prev.selectedTopicIds, id]}
                 }
             }),
@@ -29,7 +27,7 @@ const useDataStore = create<DataStoreState>()(
                 const index = prev.selectedTopicIds.indexOf(id);
 
                 // remove or return same
-                if(index >=0){
+                if (index >= 0) {
                     return {selectedTopicIds: prev.selectedTopicIds.filter(t => t !== id)}
                 }
                 return prev;

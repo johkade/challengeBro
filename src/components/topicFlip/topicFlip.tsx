@@ -4,9 +4,10 @@ import {StyleSheet, TouchableOpacity, ViewStyle} from "react-native";
 import CText from "../cText/cText";
 import {FC} from "../../style/theme/fontConfig";
 import CIcon from "../cIcon/cIcon";
-import {ACTIVE_OPACITY, BORDER_RADIUS} from "../../style/theme/misc";
+import {ACTIVE_OPACITY, BORDER_RADIUS, SPACE} from "../../style/theme/misc";
 
-const noop = ()=> {};
+const noop = () => {
+};
 type Props = {
     name: string;
     active?: boolean;
@@ -34,12 +35,14 @@ const TopicFlip = ({name, active, variant = 'small', style, onPress = noop, id, 
     const iconOnPress = small ? onPressRemove : noop;
 
     return (
-        <TouchableOpacity style={[style, dynamicContainerStyles, styles.container]} onPress={()=> containerOnPress(id)}
+        <TouchableOpacity style={[style, dynamicContainerStyles, styles.container]} onPress={() => containerOnPress(id)}
                           activeOpacity={small ? 1 : ACTIVE_OPACITY}>
             <CText text={name} fontConfig={fontConfig} color={fontColor}/>
-            {small && (<TouchableOpacity onPress={()=> iconOnPress(id)} activeOpacity={1}>
-                <CIcon icon={'close'} size={fontConfig.lineHeight} style={styles.icon} color={fontColor}/>
-            </TouchableOpacity>)}
+            {small && (
+                <TouchableOpacity onPress={() => iconOnPress(id)} activeOpacity={1}>
+                    <CIcon icon={'close'} size={fontConfig.lineHeight} style={styles.icon} color={fontColor}/>
+                </TouchableOpacity>
+            )}
         </TouchableOpacity>
     )
 }
@@ -53,6 +56,6 @@ const styles = StyleSheet.create({
         borderRadius: BORDER_RADIUS.full
     },
     icon: {
-        marginLeft: 10,
+        marginLeft: SPACE.m8,
     }
 })

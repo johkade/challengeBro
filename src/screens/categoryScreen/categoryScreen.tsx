@@ -23,7 +23,7 @@ type renderItemParams = {
     index: number;
 }
 
-const baseTopPadding = SPACE.topPadding + SPACE.searchBarHeight + SPACE.m8 + SPACE.xl32 * 4 + 26;
+const baseTopPadding = SPACE.topPadding + SPACE.searchBarHeight + SPACE.m8 + SPACE.xxl32 * 4 + 26;
 
 const CategoryScreen = ({}: ScreenProps) => {
     const {top} = useSafeAreaInsets();
@@ -45,7 +45,6 @@ const CategoryScreen = ({}: ScreenProps) => {
     }
 
     const paddingTop = baseTopPadding + top;
-
 
 
     useEffect(() => {

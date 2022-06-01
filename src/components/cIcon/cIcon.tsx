@@ -18,13 +18,11 @@ type Props = {
 const CIcon = ({icon, size = 32, color, withBgColor, style}: Props) => {
     const theme = useTheme();
 
-
-
     const dynamicStyle = [styles.container, style, {backgroundColor: withBgColor}]
     return (
         <View style={dynamicStyle}>
-           {/*@ts-ignore --> TODO: fix this later (weird warning )*/}
-            <Ionicons name={icon} size={size} color={color ?? theme.fontStd} />
+            {/*@ts-ignore --> TODO: fix this later (warning)*/}
+            <Ionicons name={icon} size={size} color={color ?? theme.fontStd}/>
         </View>
 
     )
@@ -36,6 +34,6 @@ const styles = StyleSheet.create({
     container: {
         borderRadius: 100,
         aspectRatio: 1,
-        padding: SPACE.xxs
+        padding: SPACE.xxs1
     }
 })
