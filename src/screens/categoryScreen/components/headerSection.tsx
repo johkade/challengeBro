@@ -2,17 +2,35 @@ import React from "react";
 import CText from "../../../components/cText/cText";
 import {FC} from "../../../style/theme/fontConfig";
 import useTheme from "../../../style/theme/hooks/useTheme";
-import {StyleSheet, TouchableOpacity, View} from "react-native";
+import {FlatList, Platform, StyleSheet, TouchableOpacity, View} from "react-native";
 import {SPACE} from "../../../style/theme/misc";
 import CIcon from "../../../components/cIcon/cIcon";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
 import useSetTheme from "../../../style/theme/hooks/useSetTheme";
+import TopicFlip from "../../../components/topicFlip/topicFlip";
+import SearchBar from "../../../components/searchBar/searchBar";
 
-const HeaderSection = () => {
+type Props = {
+    selectedTopicIds: string[],
+    onPressRemoveTopic: (id: string) => void;
+}
+type RenderItemParams = {
+    item: string;
+    index: number;
+
+}
+
+
+const HeaderSection = ({selectedTopicIds = [], onPressRemoveTopic}: Props) => {
     const theme = useTheme();
     const {toggleTheme} = useSetTheme();
     const {top} = useSafeAreaInsets();
     const paddingTop = top + SPACE.topPadding
+    const renderTopics = ({item}:RenderItemParams) => {
+        return (
+            <TopicFlip name={item} id={item} style={styles.flip} onPressRemove={onPressRemoveTopic}/>
+        )
+    }
 
     return (
         <View style={[styles.container, {backgroundColor: theme.background, paddingTop}]}>
@@ -26,6 +44,8 @@ const HeaderSection = () => {
 
             <CText text={'Choose a topic best describes you'} fontConfig={FC.textS} color={theme.fontLight}
                    style={styles.infoText}/>
+            <SearchBar style={styles.searchBar}/>
+            <FlatList data={selectedTopicIds} renderItem={renderTopics} horizontal showsHorizontalScrollIndicator={Platform.OS === 'web'} contentContainerStyle={styles.flatListContent}/>
         </View>
     )
 }
@@ -33,8 +53,17 @@ const HeaderSection = () => {
 export default HeaderSection;
 
 const styles = StyleSheet.create({
-    container: {position: 'absolute', paddingHorizontal: SPACE.sidePadding, width: '100%'},
-    topRow: {flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'},
+    container: {position: 'absolute', width: '100%'},
+    topRow: {flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: SPACE.sidePadding, },
     header: {marginBottom: SPACE.m8},
-    infoText: {marginBottom: SPACE.xl32},
+    infoText: {marginBottom: SPACE.xl32, paddingHorizontal: SPACE.sidePadding, },
+    flip: {marginRight: SPACE.m8},
+    flatListContent: {
+        paddingLeft: SPACE.sidePadding,
+        paddingBottom: SPACE.m8,
+    },
+    searchBar: {
+        marginHorizontal: SPACE.sidePadding,
+        marginBottom: SPACE.m8,
+    }
 })

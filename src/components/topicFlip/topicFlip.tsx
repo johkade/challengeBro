@@ -14,9 +14,10 @@ type Props = {
     style?: ViewStyle;
     id: string;
     onPress?: (id: string) => void;
+    onPressRemove?: (id: string) => void;
 }
 
-const TopicFlip = ({name, active, variant = 'small', style, onPress = noop, id}: Props) => {
+const TopicFlip = ({name, active, variant = 'small', style, onPress = noop, id, onPressRemove = noop}: Props) => {
     const theme = useTheme();
 
     const small = variant === 'small';
@@ -30,7 +31,7 @@ const TopicFlip = ({name, active, variant = 'small', style, onPress = noop, id}:
     const fontColor = small || active ? theme.fontInverse : theme.fontStd
 
     const containerOnPress = small ? noop : onPress;
-    const iconOnPress = small ? onPress : noop;
+    const iconOnPress = small ? onPressRemove : noop;
 
     return (
         <TouchableOpacity style={[style, dynamicContainerStyles, styles.container]} onPress={()=> containerOnPress(id)}

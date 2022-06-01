@@ -4,6 +4,7 @@ export const SPACE = {
     // special
     topPadding: 12,
     sidePadding: 24,
+    searchBarHeight: 56,
 
     xl32:32,
     m8: 8,
