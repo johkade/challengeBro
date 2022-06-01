@@ -13,15 +13,15 @@ import SearchBar from "../../../components/searchBar/searchBar";
 type Props = {
     selectedTopicIds: string[],
     onPressRemoveTopic: (id: string) => void;
+    setSearchKey: (text: string) => void;
 }
 type RenderItemParams = {
     item: string;
     index: number;
-
 }
 
 
-const HeaderSection = ({selectedTopicIds = [], onPressRemoveTopic}: Props) => {
+const HeaderSection = ({selectedTopicIds = [], onPressRemoveTopic, setSearchKey}: Props) => {
     const theme = useTheme();
     const {toggleTheme} = useSetTheme();
     const {top} = useSafeAreaInsets();
@@ -44,7 +44,7 @@ const HeaderSection = ({selectedTopicIds = [], onPressRemoveTopic}: Props) => {
 
             <CText text={'Choose a topic best describes you'} fontConfig={FC.textS} color={theme.fontLight}
                    style={styles.infoText}/>
-            <SearchBar style={styles.searchBar}/>
+            <SearchBar style={styles.searchBar} setSearchKey={setSearchKey}/>
             <FlatList data={selectedTopicIds} renderItem={renderTopics} horizontal showsHorizontalScrollIndicator={Platform.OS === 'web'} contentContainerStyle={styles.flatListContent}/>
         </View>
     )
@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
     flip: {marginRight: SPACE.m8},
     flatListContent: {
         paddingLeft: SPACE.sidePadding,
+        paddingRight: SPACE.sidePadding - SPACE.m8,
         paddingBottom: SPACE.m8,
     },
     searchBar: {

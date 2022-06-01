@@ -7,6 +7,7 @@ export const SPACE = {
     searchBarHeight: 56,
 
     xl32:32,
+    l16: 16,
     m8: 8,
     xs: 2,
     xxs: 1,
