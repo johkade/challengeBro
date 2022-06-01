@@ -42,7 +42,7 @@ const HeaderSection = ({selectedTopicIds = [], onPressRemoveTopic, setSearchKey}
 
             </View>
 
-            <CText text={'Choose a topic best describes you'} fontConfig={FC.textS} color={theme.fontLight}
+            <CText text={'Choose a topic that best describes you'} fontConfig={FC.textS} color={theme.fontLight}
                    style={styles.infoText}/>
             <SearchBar style={styles.searchBar} setSearchKey={setSearchKey}/>
             <FlatList data={selectedTopicIds} renderItem={renderTopics} horizontal
